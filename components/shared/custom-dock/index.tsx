@@ -10,7 +10,8 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { useTheme } from "next-themes";
-import { CalendarIcon, HomeIcon, MailIcon, SettingsIcon } from "lucide-react";
+import { IconProps } from "@/types/Icon";
+import { HomeIcon, MailIcon, FolderKanbanIcon } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -19,16 +20,13 @@ import {
 } from "@/components/ui/tooltip";
 import {
   HOME_BUTTON_TEXT,
-  SKILLS_BUTTON_TEXT,
+  PROJECTS_BUTTON_TEXT,
   GITHUB_BUTTON_TEXT,
   LINKEDIN_BUTTON_TEXT,
   EMAIL_BUTTON_TEXT,
 } from "@/lib/constants";
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
-
 const Icons = {
-  calendar: (props: IconProps) => <CalendarIcon {...props} />,
   email: (props: IconProps) => <MailIcon {...props} />,
   linkedin: (props: IconProps) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -65,7 +63,7 @@ const Icons = {
 const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: HOME_BUTTON_TEXT },
-    { href: "/about", icon: SettingsIcon, label: SKILLS_BUTTON_TEXT },
+    { href: "/projects", icon: FolderKanbanIcon, label: PROJECTS_BUTTON_TEXT },
   ],
   contact: {
     social: {
@@ -81,7 +79,7 @@ const DATA = {
       },
       email: {
         name: EMAIL_BUTTON_TEXT,
-        url: "#",
+        url: "mailto:amin.dev.tech@gmail.com",
         icon: Icons.email,
       },
     },
@@ -96,7 +94,7 @@ export function CustomDock() {
   return (
     <div className="flex flex-col items-center justify-center absolute bottom-7 m-auto w-full">
       <TooltipProvider>
-        <Dock direction="middle">
+        <Dock direction="middle" className="rounded-md">
           {DATA.navbar.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -107,8 +105,7 @@ export function CustomDock() {
                       href={item.href}
                       aria-label={item.label}
                       className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        buttonVariants({ variant: "ghost", size: "icon" })
                       )}
                     >
                       <item.icon className="size-4" />
@@ -135,8 +132,7 @@ export function CustomDock() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
+                      buttonVariants({ variant: "ghost", size: "icon" })
                     )}
                   >
                     <social.icon className="size-4" />
@@ -153,7 +149,7 @@ export function CustomDock() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <span>
-                  <ModeToggle className="rounded-full" />
+                  <ModeToggle />
                 </span>
               </TooltipTrigger>
               <TooltipContent>

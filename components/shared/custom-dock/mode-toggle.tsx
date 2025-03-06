@@ -2,7 +2,7 @@
 
 // IMPORTS
 import { useState, useEffect } from "react";
-import { MoonIcon, SunIcon, SunMoon } from "lucide-react";
+import { MoonIcon, SunIcon, SunMoon, Ellipsis } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -23,7 +23,9 @@ export const ModeToggle = React.forwardRef<
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <Ellipsis className="size-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+    );
   }
 
   return (
