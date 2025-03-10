@@ -92,7 +92,7 @@ export function CustomDock() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col items-center justify-center absolute bottom-7 m-auto w-full">
+    <div className="flex flex-col items-center justify-center fixed bottom-[10px] m-auto w-full">
       <TooltipProvider>
         <Dock direction="middle" className="rounded-md">
           {DATA.navbar.map((item) => {

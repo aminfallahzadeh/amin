@@ -1,3 +1,5 @@
+// IMPORTS
+
 export const skillsData = {
   languages: [
     {
@@ -28,7 +30,7 @@ export const skillsData = {
     },
     {
       title: "React Native",
-      slug: "react-native",
+      slug: "reactnative",
       category: "front",
       icon: "reactnative",
     },
@@ -44,7 +46,43 @@ export const skillsData = {
       title: "Git",
       slug: "git",
       category: "tools",
-      icon: "next",
+      icon: "git",
+    },
+    {
+      title: "Figma",
+      slug: "figma",
+      category: "tools",
+      icon: "figma",
+    },
+    {
+      title: "Sass",
+      slug: "sass",
+      category: "tools",
+      icon: "sass",
+    },
+    {
+      title: "Adobe",
+      slug: "adobe",
+      category: "tools",
+      icon: "adobe",
+    },
+    {
+      title: "Postman",
+      slug: "postman",
+      category: "tools",
+      icon: "postman",
+    },
+    {
+      title: "Redux",
+      slug: "redux",
+      category: "tools",
+      icon: "redux",
+    },
+    {
+      title: "Markdown",
+      slug: "markdown",
+      category: "tools",
+      icon: "md",
     },
   ],
 };

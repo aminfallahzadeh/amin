@@ -25,3 +25,6 @@ export const PROJECTS_BUTTON_TEXT = "Projects";
 export const ABOUT_TITLE = "ABOUT";
 export const SKILLS_TITLE = "SKILLS";
 export const LANGUAGES_TITLE = "Languages";
+export const FRONT_TITLE = "FrontEnd";
+export const TOOLS_TITLE = "Tools";
+export const PROJECTS_TITLE = "Projects";

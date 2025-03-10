@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <main>{children}</main>
+      <main className="mb-20">{children}</main>
 
       <CustomDock />
     </div>
