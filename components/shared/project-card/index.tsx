@@ -1,21 +1,22 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { ChevronRight } from "lucide-react";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { useTheme } from "next-themes";
+import { ProjectType } from "@/types/project";
+import { LEARN_MORE_BUTTON_TEXT } from "@/lib/constants";
 
-export const ProjectCard = () => {
+export const ProjectCard = ({ item }: { item: ProjectType }) => {
   // STATES
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -40,27 +41,35 @@ export const ProjectCard = () => {
         gradientSize={120}
       >
         <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>
-            Enter your credentials to access your account
-          </CardDescription>
+          <Image
+            src={item.imgUrl}
+            style={{
+              width: "100%",
+              height: "auto",
+              borderRadius: 5,
+            }}
+            width={500}
+            height={500}
+            alt={"incidentor"}
+          />
+          <CardTitle>{item.title}</CardTitle>
+
+          <CardDescription>{item.description}</CardDescription>
         </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="name@example.com" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" />
-              </div>
-            </div>
-          </form>
-        </CardContent>
         <CardFooter>
-          <Button className="w-full">Sign In</Button>
+          <Link
+            href={"/"}
+            className="relative flex items-center gap-x-2 justify-center"
+          >
+            <h1 className="group-hover:text-blue-400">
+              {LEARN_MORE_BUTTON_TEXT}
+            </h1>
+            <ChevronRight
+              size={18}
+              className="group-hover:text-blue-400 transition-colors"
+            />
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] border-b-2 border-dashed border-black dark:border-white group-hover:w-full group-hover:border-blue-400 transition-all duration-300 ease-in-out"></span>
+          </Link>
         </CardFooter>
       </MagicCard>
     </Card>

@@ -20,6 +20,7 @@ export const GITHUB_BUTTON_TEXT = "Github";
 export const LINKEDIN_BUTTON_TEXT = "LinkedIn";
 export const EMAIL_BUTTON_TEXT = "Email";
 export const PROJECTS_BUTTON_TEXT = "Projects";
+export const LEARN_MORE_BUTTON_TEXT = "Learn More";
 
 // TITLES
 export const ABOUT_TITLE = "ABOUT";
@@ -27,4 +28,4 @@ export const SKILLS_TITLE = "SKILLS";
 export const LANGUAGES_TITLE = "Languages";
 export const FRONT_TITLE = "FrontEnd";
 export const TOOLS_TITLE = "Tools";
-export const PROJECTS_TITLE = "Projects";
+export const PROJECTS_TITLE = "Recent Projects";

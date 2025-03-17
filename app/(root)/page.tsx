@@ -6,6 +6,8 @@ import { SkillCard } from "@/components/shared/skill-card";
 import { skillsData } from "@/db/skills";
 import { SkillIconsType } from "@/types/Icon";
 import { ProjectCard } from "@/components/shared/project-card";
+import { ProjectType } from "@/types/project";
+import { projectsData } from "@/db/projects";
 import {
   ArrowDownToLineIcon,
   BriefcaseIcon,
@@ -47,7 +49,6 @@ export default async function HomePage() {
                 height={100}
                 alt={MY_FULL_NAME}
                 className="rounded-full z-10"
-                // priority={true}
               />
             </div>
 
@@ -157,11 +158,9 @@ export default async function HomePage() {
 
         {/* content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {projectsData.map((item: ProjectType, index: number) => (
+            <ProjectCard key={index} item={item} />
+          ))}
         </div>
       </section>
     </div>

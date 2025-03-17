@@ -1,5 +1,3 @@
-// IMPORTS
-
 export const skillsData = {
   languages: [
     {
