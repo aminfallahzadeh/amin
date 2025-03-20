@@ -9,10 +9,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <main className="mb-20">{children}</main>
-
+    <>
+      <main className="mt-20 mb-20">{children}</main>
       <CustomDock />
-    </div>
+    </>
   );
 }

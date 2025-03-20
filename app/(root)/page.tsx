@@ -8,12 +8,9 @@ import { SkillIconsType } from "@/types/Icon";
 import { ProjectCard } from "@/components/shared/project-card";
 import { ProjectType } from "@/types/project";
 import { projectsData } from "@/db/projects";
-import {
-  ArrowDownToLineIcon,
-  BriefcaseIcon,
-  MoveRightIcon,
-  DotIcon,
-} from "lucide-react";
+import Section from "@/components/shared/section";
+import { ArrowDownToLineIcon, BriefcaseIcon } from "lucide-react";
+import { Title } from "@/components/shared/title";
 import {
   MY_FULL_NAME,
   MY_INTRODUCTION_TITLE,
@@ -38,8 +35,8 @@ export default async function HomePage() {
   const content = (
     <div className="flex flex-col gap-y-5">
       {/* HERO */}
-      <section className="flex justify-center items-center mt-20 border border-l-0 border-r-0 md:border-l md:border-r md:mx-20 p-5 md:rounded-md">
-        <div className="flex flex-col justify-center items-center gap-y-5 w-full md:flex-row md:justify-between">
+      <Section>
+        <div className="flex flex-row justify-center items-center gap-y-5 gap-x-5 w-full md:flex-row md:justify-between">
           <div className="flex justify-center items-center gap-x-2">
             <div className="relative flex justify-center items-center">
               <div className="absolute w-[100px] h-[100px] bg-black dark:bg-white rounded-full blur-xl opacity-50 z-0" />
@@ -58,10 +55,11 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-y-2 justify-center items-center gap-x-2 lg:flex-row">
+          <div className="flex flex-row gap-y-2 justify-center items-center gap-x-2">
             <Button asChild>
               <a href={"/amin-fallahzadeh-cv.pdf"} download>
-                <ArrowDownToLineIcon /> Download CV
+                <ArrowDownToLineIcon />
+                <span className="hidden md:block">Download CV</span>
               </a>
             </Button>
 
@@ -71,43 +69,26 @@ export default async function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <BriefcaseIcon /> Hire On UpWork
+                <BriefcaseIcon />
+                <span className="hidden md:block">Hire On UpWork</span>
               </Link>
             </Button>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* ABOUT */}
-      <section className="flex flex-col gap-y-2 border border-l-0 border-r-0 md:border-l md:border-r md:mx-20 p-5 md:rounded-md">
-        {/* title */}
-        <div className="flex justify-start items-center gap-x-2">
-          <h1 className="inline-block text-[20px] italic">{ABOUT_TITLE}</h1>
-          <MoveRightIcon />
-        </div>
-
-        {/* content */}
+      <Section title={ABOUT_TITLE}>
         <div className="flex items-start">
-          <DotIcon className="shrink-0" />
           <p className="text-[15px]">{MY_ABOUT}</p>
         </div>
-      </section>
+      </Section>
 
       {/* SKILLS */}
-      <section className="flex flex-col gap-y-2 border border-l-0 border-r-0 md:border-l md:border-r md:mx-20 p-5 md:rounded-md">
-        {/* title */}
-        <div className="flex justify-start items-center gap-x-2">
-          <h1 className="inline-block text-[20px] italic">{SKILLS_TITLE}</h1>
-          <MoveRightIcon />
-        </div>
+      <Section title={SKILLS_TITLE}>
+        <Title.Secondary title={LANGUAGES_TITLE} />
 
-        {/* content */}
-        <div className="flex items-start">
-          <DotIcon className="shrink-0" />
-          <h1 className="text-[15px]">{LANGUAGES_TITLE}</h1>
-        </div>
-
-        <div className="flex gap-x-1">
+        <div className="flex gap-x-1 flex-wrap">
           {skillsData.languages.map((skill) => (
             <SkillCard
               key={skill.slug}
@@ -117,12 +98,9 @@ export default async function HomePage() {
           ))}
         </div>
 
-        <div className="flex items-start">
-          <DotIcon className="shrink-0" />
-          <h1 className="text-[15px]">{FRONT_TITLE}</h1>
-        </div>
+        <Title.Secondary title={FRONT_TITLE} />
 
-        <div className="flex gap-x-1">
+        <div className="flex gap-x-1 flex-wrap">
           {skillsData.front.map((skill) => (
             <SkillCard
               key={skill.slug}
@@ -132,12 +110,9 @@ export default async function HomePage() {
           ))}
         </div>
 
-        <div className="flex items-start">
-          <DotIcon className="shrink-0" />
-          <h1 className="text-[15px]">{TOOLS_TITLE}</h1>
-        </div>
+        <Title.Secondary title={TOOLS_TITLE} />
 
-        <div className="flex gap-x-1">
+        <div className="flex gap-x-1 flex-wrap">
           {skillsData.tools.map((skill) => (
             <SkillCard
               key={skill.slug}
@@ -146,23 +121,16 @@ export default async function HomePage() {
             />
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* PROJECTS */}
-      <section className="flex flex-col gap-y-2 border border-l-0 border-r-0 md:border-l md:border-r md:mx-20 p-5 md:rounded-md">
-        {/* title */}
-        <div className="flex justify-start items-center gap-x-2">
-          <h1 className="inline-block text-[20px] italic">{PROJECTS_TITLE}</h1>
-          <MoveRightIcon />
-        </div>
-
-        {/* content */}
+      <Section title={PROJECTS_TITLE}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {projectsData.map((item: ProjectType, index: number) => (
             <ProjectCard key={index} item={item} />
           ))}
         </div>
-      </section>
+      </Section>
     </div>
   );
 

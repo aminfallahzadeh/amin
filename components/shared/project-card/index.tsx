@@ -34,44 +34,44 @@ export const ProjectCard = ({ item }: { item: ProjectType }) => {
 
   return (
     <Card>
-      <MagicCard
-        gradientColor={resolvedTheme === "dark" ? "#262626" : "#92929255"}
-        gradientFrom={resolvedTheme === "dark" ? "#fafafa" : "#000"}
-        gradientTo={resolvedTheme === "dark" ? "#fff" : "#000"}
-        gradientSize={120}
-      >
-        <CardHeader>
-          <Image
-            src={item.imgUrl}
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: 5,
-            }}
-            width={500}
-            height={500}
-            alt={"incidentor"}
-          />
-          <CardTitle>{item.title}</CardTitle>
-
-          <CardDescription>{item.description}</CardDescription>
-        </CardHeader>
-        <CardFooter>
-          <Link
-            href={"/"}
-            className="relative flex items-center gap-x-2 justify-center"
-          >
-            <h1 className="group-hover:text-blue-400">
-              {LEARN_MORE_BUTTON_TEXT}
-            </h1>
-            <ChevronRight
-              size={18}
-              className="group-hover:text-blue-400 transition-colors"
+      <Link href={`/project/${item.slug}`}>
+        <MagicCard
+          gradientColor={resolvedTheme === "dark" ? "#262626" : "#92929255"}
+          gradientFrom={resolvedTheme === "dark" ? "#fafafa" : "#000"}
+          gradientTo={resolvedTheme === "dark" ? "#fff" : "#000"}
+          gradientSize={120}
+          className="h-full"
+        >
+          <CardHeader>
+            <Image
+              src={item.imgUrl}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: 5,
+              }}
+              width={500}
+              height={500}
+              alt={"incidentor"}
             />
-            <span className="absolute -bottom-1 left-0 w-0 h-[2px] border-b-2 border-dashed border-black dark:border-white group-hover:w-full group-hover:border-blue-400 transition-all duration-300 ease-in-out"></span>
-          </Link>
-        </CardFooter>
-      </MagicCard>
+            <CardTitle>{item.title}</CardTitle>
+
+            <CardDescription>{item.description}</CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <div className="relative flex flex-row items-center h-full">
+              <h1 className="group-hover:text-blue-400">
+                {LEARN_MORE_BUTTON_TEXT}
+              </h1>
+              <ChevronRight
+                size={18}
+                className="group-hover:text-blue-400 transition-colors"
+              />
+              <div className="absolute -bottom-1 left-0 w-0 h-[2px] border-b-2 border-dashed border-black dark:border-white group-hover:w-full group-hover:border-blue-400 transition-all duration-300 ease-in-out" />
+            </div>
+          </CardFooter>
+        </MagicCard>
+      </Link>
     </Card>
   );
 };
