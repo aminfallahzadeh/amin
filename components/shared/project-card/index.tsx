@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { useTheme } from "next-themes";
+import { ProjectType } from "@/types/project";
+import { LEARN_MORE_BUTTON_TEXT } from "@/lib/constants";
 import {
   Card,
   CardDescription,
@@ -10,11 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
-import { MagicCard } from "@/components/magicui/magic-card";
-import { useTheme } from "next-themes";
-import { ProjectType } from "@/types/project";
-import { LEARN_MORE_BUTTON_TEXT } from "@/lib/constants";
 
 export const ProjectCard = ({ item }: { item: ProjectType }) => {
   // STATES
@@ -34,7 +34,7 @@ export const ProjectCard = ({ item }: { item: ProjectType }) => {
 
   return (
     <Card>
-      <Link href={`/project/${item.slug}`}>
+      <Link href={`/project/${item.slug}`} className="rounded-[inherit]">
         <MagicCard
           gradientColor={resolvedTheme === "dark" ? "#262626" : "#92929255"}
           gradientFrom={resolvedTheme === "dark" ? "#fafafa" : "#000"}
@@ -46,13 +46,15 @@ export const ProjectCard = ({ item }: { item: ProjectType }) => {
             <Image
               src={item.imgUrl}
               style={{
-                width: "100%",
-                height: "auto",
                 borderRadius: 5,
+                width: "auto",
+                height: "auto",
               }}
-              width={500}
-              height={500}
-              alt={"incidentor"}
+              width={200}
+              height={100}
+              alt={item.title}
+              placeholder="blur"
+              blurDataURL={item.imgUrl}
             />
             <CardTitle>{item.title}</CardTitle>
 

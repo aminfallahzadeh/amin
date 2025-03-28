@@ -1,8 +1,12 @@
 // IMPORTS
-import { TitleSecondaryProps } from "./types";
+import { TitleSecondaryProps, TitlePrimaryProps } from "./types";
 import { DotIcon } from "lucide-react";
 
 export const Title = () => {
+  return null;
+};
+
+Title.Primary = function Primary({ title }: TitlePrimaryProps) {
   return null;
 };
 

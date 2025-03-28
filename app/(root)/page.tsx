@@ -8,7 +8,7 @@ import { SkillIconsType } from "@/types/Icon";
 import { ProjectCard } from "@/components/shared/project-card";
 import { ProjectType } from "@/types/project";
 import { projectsData } from "@/db/projects";
-import Section from "@/components/shared/section";
+import { Section } from "@/components/shared/section";
 import { ArrowDownToLineIcon, BriefcaseIcon } from "lucide-react";
 import { Title } from "@/components/shared/title";
 import {
