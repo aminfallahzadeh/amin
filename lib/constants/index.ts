@@ -34,3 +34,4 @@ export const PROJECT_OVERVIEW_TITLE = "Project Overview";
 export const EXPLANATION_TITLE = "Explanation";
 export const CORE_DEPENDENCIES_TITLE = "Core Dependencies";
 export const STYLING_TITLE = "Styling";
+export const CONTACT_ME_TITLE = "Contact Me";

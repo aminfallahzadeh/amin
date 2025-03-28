@@ -11,6 +11,7 @@ import { projectsData } from "@/db/projects";
 import { Section } from "@/components/shared/section";
 import { ArrowDownToLineIcon, BriefcaseIcon } from "lucide-react";
 import { Title } from "@/components/shared/title";
+import ContactForm from "@/components/shared/contact-form";
 import {
   MY_FULL_NAME,
   MY_INTRODUCTION_TITLE,
@@ -22,6 +23,7 @@ import {
   FRONT_TITLE,
   TOOLS_TITLE,
   PROJECTS_TITLE,
+  CONTACT_ME_TITLE,
 } from "@/lib/constants";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
@@ -130,6 +132,11 @@ export default async function HomePage() {
             <ProjectCard key={index} item={item} />
           ))}
         </div>
+      </Section>
+
+      {/* CONTACT ME */}
+      <Section title={CONTACT_ME_TITLE}>
+        <ContactForm />
       </Section>
     </div>
   );

@@ -7,7 +7,7 @@ export const Title = () => {
 };
 
 Title.Primary = function Primary({ title }: TitlePrimaryProps) {
-  return null;
+  return <h1>{title}</h1>;
 };
 
 Title.Secondary = function Secondary({ title }: TitleSecondaryProps) {
