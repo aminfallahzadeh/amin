@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { useTheme } from "next-themes";
 import { IconProps } from "@/types/Icon";
-import { HomeIcon, MailIcon, FolderKanbanIcon } from "lucide-react";
+import { HomeIcon, MailIcon, ClipboardPenLine } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip";
 import {
   HOME_BUTTON_TEXT,
-  PROJECTS_BUTTON_TEXT,
+  BLOGS_BUTTON_TEXT,
   GITHUB_BUTTON_TEXT,
   LINKEDIN_BUTTON_TEXT,
   EMAIL_BUTTON_TEXT,
@@ -63,7 +63,7 @@ const Icons = {
 const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: HOME_BUTTON_TEXT },
-    { href: "/projects", icon: FolderKanbanIcon, label: PROJECTS_BUTTON_TEXT },
+    { href: "/blogs", icon: ClipboardPenLine, label: BLOGS_BUTTON_TEXT },
   ],
   contact: {
     social: {
